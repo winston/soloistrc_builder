@@ -14,11 +14,12 @@ $(function() {
 
 	$.ajax({
 	  url: github_api_url(),
+	  dataType: 'jsonp',
 		success: function (data) {
 			$("#config").html("Recipes successfully retrieved from: " + github_api_url());
 
 			var $ul   = $("#recipes ul");
-			$.each(data, function(index, elem) {
+			$.each(data.data, function(index, elem) {
 					$ul.append(
 						"<li class='recipe'>" +
 							"<label><input type='checkbox' value='"+ elem.name +"'>" + elem.name + "</label>"	+
@@ -40,7 +41,8 @@ $(function() {
 		$("textarea").val(
 			paths.join("\n") +
 			"\n\n"					 +
-			"recipes:\n" 		 + recipes.join("\n")
+			"recipes:\n" 		 +
+			recipes.join("\n")
 		);
 	})
 
