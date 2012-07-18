@@ -1,0 +1,51 @@
+@import 'css/normalize';
+@import 'css/bourbon/bourbon';
+
+body {
+	font-family: $monospace;
+}
+
+header,
+#content {
+	position: relative;
+	width 	: 1000px;
+	margin	: auto;
+}
+
+section {
+	display	: block;
+	float		: left;
+}
+
+#recipes {
+	width		: 480px;
+	padding	: 10px;
+
+	ul {
+		padding: 0;
+		list-style-type: none;
+
+		li.recipe label {
+			display	: inline-block;
+			width		: 100%;
+			padding	: 2px;
+			cursor	: pointer;
+
+			input 	{ margin-right: 10px; }
+
+			&:hover { background-color: lighten(green, 60); }
+		}
+	}
+}
+
+#soloistrc {
+	position: fixed;
+	top			: 100px;
+	left		: 50%;
+
+	textarea {
+		width	: 485px;
+		height: 600px;
+		font	: 12px courier;
+	}
+}
