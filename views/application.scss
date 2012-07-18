@@ -1,5 +1,5 @@
-@import 'css/normalize';
-@import 'css/bourbon/bourbon';
+@import 'stylesheets/normalize';
+@import 'stylesheets/bourbon/bourbon';
 
 body {
 	font-family: $monospace;
@@ -15,6 +15,20 @@ header,
 section {
 	display	: block;
 	float		: left;
+}
+
+#config {
+	form  {
+		label {
+			font-weight: bold;
+		}
+		input[type=text] {
+			width: 660px;;
+		}
+		button {
+			@include button(shiny);
+		}
+	}
 }
 
 #recipes {
@@ -40,7 +54,7 @@ section {
 
 #soloistrc {
 	position: fixed;
-	top			: 100px;
+	top			: 150px;
 	left		: 50%;
 
 	textarea {
