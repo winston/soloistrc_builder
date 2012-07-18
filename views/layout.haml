@@ -1,0 +1,11 @@
+!!!
+%html{lang: "en"}
+	%head
+		%link{rel: "stylesheet", href: "application.css", type: "text/css"}
+	%body
+		%header
+			%h1 soloistrc builder
+		#content
+			= yield
+		%script{src: "https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"}
+		%script{src: "application.js"}

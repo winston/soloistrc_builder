@@ -14,9 +14,9 @@ get '/application.css' do
 end
 
 get '/' do
-  erb :application
+  haml :application
 end
 
 get '/build' do
-  erb :build
+  haml :build
 end
