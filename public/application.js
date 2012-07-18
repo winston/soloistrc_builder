@@ -1,9 +1,18 @@
 $(function() {
 
+	function github_api_url() {
+		var url  = $("#recipes").data("url");
+		var user = url.split(/[\/]+/)[2];
+		var repo = url.split(/[\/]+/)[3];
+		return "https://api.github.com/repos/" + user + "/" + repo + "/contents/recipes";
+	}
+
 	$.ajax({
-	  url: "https://api.github.com/repos/newcontext/pivotal_workstation/contents/recipes",
+	  url: github_api_url(),
 		success: function (data) {
-			var $ul = $("#recipes ul");
+			$("#config").html("Recipes successfully retrieved from: " + github_api_url());
+
+			var $ul   = $("#recipes ul");
 			$.each(data, function(index, elem) {
 					$ul.append(
 						"<li class='recipe'>" +
@@ -11,6 +20,9 @@ $(function() {
 						"</li>"
 					);
 			});
+		},
+		error: function(jqXHR, textStatus, errorThrown) {
+			$("#config").html("Hmm.. Failed to retrieved receipes from: " + github_api_url());
 		}
 	})
 

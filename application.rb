@@ -7,11 +7,16 @@ configure do
   set :scss, { :style  => :compact }
 end
 
+get '/application.css' do
+  require './views/stylesheets/bourbon/lib/bourbon.rb'
+  content_type :css
+  scss :application
+end
+
 get '/' do
   erb :application
 end
 
-get '/application.css' do
-  content_type 'text/css', :charset => 'utf-8'
-  scss :application
+get '/build' do
+  erb :build
 end
