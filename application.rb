@@ -8,9 +8,10 @@ configure do
 end
 
 get '/application.css' do
-  require './views/stylesheets/bourbon/lib/bourbon.rb'
+  require './views/css/bourbon/lib/bourbon.rb'
+
   content_type :css
-  scss :application
+  scss :'css/application'
 end
 
 get '/' do
