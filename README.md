@@ -14,4 +14,4 @@ Typically, this is our workflow for setting up our developer and ci machines:
 		> gem install soloist
 		> soloist
 
-Build your soloistrc now at [http://soloistrc_builder.herokuapp.com](http://soloistrc_builder.herokuapp.com).
+Build your soloistrc now at [http://soloistrc-builder.herokuapp.com](http://soloistrc_builder.herokuapp.com).
