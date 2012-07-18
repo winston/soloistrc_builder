@@ -1,6 +1,23 @@
 %section#readme
+	:markdown
+		Do you use [soloist](https://github.com/mkocher/soloist)?
+
+		This simple app will help you build your *soloistrc* file easily from a (GitHub) directory of recipes.
+
+		Typically, this is our workflow for setting up our developer and ci machines:
+
+				> mkdir workspace && cd workspace
+				> git clone https://github.com/newcontext/pivotal_workstation
+
+				# Build a soloistrc file by choosing from recipes in ~/workspace/pivotal_workstation/recipes
+
+				> gem install soloist
+				> soloist
+
+		[Try it now](/build?url=https://github.com/newcontext/pivotal_workstation), or use your own Chef Cookbooks repo.
+
 %section#config
-  %form{action: "/build", method: "get"}
-    %label GitHub Repository URL
-    %input{type: "text", id: "url", name: "url", placeholder: "https://github.com/newcontext/pivotal_workstation"}
-    %button{type: "submit"} Submit
+	%form{action: "/build", method: "get"}
+		%label GitHub Repository URL
+		%input{type: "text", id: "url", name: "url", placeholder: "https://github.com/newcontext/pivotal_workstation"}
+		%button{type: "submit"} Submit

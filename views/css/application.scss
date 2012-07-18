@@ -2,7 +2,13 @@
 @import 'bourbon/bourbon';
 
 body {
-	font-family: $monospace;
+	font-family	: $monospace;
+}
+
+code {
+	font-size		: 14px;
+	font-style	: italic;
+	color				: gray;
 }
 
 header,
