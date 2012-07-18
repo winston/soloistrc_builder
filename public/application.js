@@ -27,7 +27,7 @@ $(function() {
 			});
 		},
 		error: function(jqXHR, textStatus, errorThrown) {
-			$("#config").html("Hmm.. Failed to retrieved receipes from: " + github_api_url());
+			$("#config").html("Hmm.. Failed to retrieved recipes from: " + github_api_url());
 		}
 	})
 
