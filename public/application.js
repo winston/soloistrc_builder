@@ -15,14 +15,15 @@ $(function() {
 	$.ajax({
 	  url: github_api_url(),
 	  dataType: 'jsonp',
-		success: function (data) {
+		success: function (response) {
 			$("#config").html("Recipes successfully retrieved from: " + github_api_url());
 
-			var $ul   = $("#recipes ul");
-			$.each(data.data, function(index, elem) {
+			var $ul = $("#recipes ul");
+			$.each(response.data, function(index, elem) {
 					$ul.append(
 						"<li class='recipe'>" +
 							"<label><input type='checkbox' value='"+ elem.name +"'>" + elem.name + "</label>"	+
+							"<a class='source' href='"+ elem._links.self +"'>View</a>" +
 						"</li>"
 					);
 			});
@@ -32,7 +33,7 @@ $(function() {
 		}
 	})
 
-	$(".recipe").live("click", function() {
+	$(".recipe label").live("click", function() {
 		var paths   = ["cookbook_paths:", "- workspace"]
 		var recipes = $.map($(".recipe input:checked"), function(elem, index) {
 			return "- " + github_repo() + "::" + $(elem).val().replace(".rb", "");
@@ -44,6 +45,33 @@ $(function() {
 			"recipes:\n" 		 +
 			recipes.join("\n")
 		);
+	})
+
+	$(".source").live("click", function(e) {
+		var url = $(this).attr("href");
+		$.ajax({
+		  url: url,
+		  dataType: 'jsonp',
+			success: function (response) {
+				$("#recipes,#soloistrc").fadeOut("fast")
+
+				$("#source div").html(response.data.name);
+				$("#source pre").html(window.atob(response.data.content.replace(/\n/g, "")));
+				$("#source").show();
+			},
+			error: function(jqXHR, textStatus, errorThrown) {
+				$("#config").html("Hmm.. Failed to retrieve source from: " + url);
+			}
+		})
+
+		e.preventDefault();
+	})
+
+	$("#source .close").live("click", function(e) {
+		$("#recipes,#soloistrc").fadeIn("fast");
+		$("#source").hide();
+
+		e.preventDefault();
 	})
 
 });
