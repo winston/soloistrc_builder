@@ -6,10 +6,10 @@ This simple app will help you build your *soloistrc* file easily from a (GitHub)
 
 Typically, this is our workflow for setting up our developer and ci machines:
 
-		> mkdir workspace && cd workspace
+		> mkdir cookbooks && cd cookbooks
 		> git clone https://github.com/newcontext/pivotal_workstation
 
-		# Build a soloistrc file by choosing from recipes in ~/workspace/pivotal_workstation/recipes
+		# Build a soloistrc file by choosing from recipes in ~/cookbooks/pivotal_workstation/recipes
 
 		> gem install soloist
 		> soloist

@@ -34,7 +34,7 @@ $(function() {
 	})
 
 	$(".recipe label").live("click", function() {
-		var paths   = ["cookbook_paths:", "- workspace"]
+		var paths   = ["cookbook_paths:", "- cookbooks"]
 		var recipes = $.map($(".recipe input:checked"), function(elem, index) {
 			return "- " + github_repo() + "::" + $(elem).val().replace(".rb", "");
 		});
