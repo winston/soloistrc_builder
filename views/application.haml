@@ -7,17 +7,17 @@
 		Typically, this is our workflow for setting up our developer and ci machines:
 
 				> mkdir cookbooks && cd cookbooks
-				> git clone https://github.com/newcontext/pivotal_workstation
+				> git clone https://github.com/pivotal/pivotal_workstation
 
 				# Build a soloistrc file by choosing from recipes in ~/cookbooks/pivotal_workstation/recipes
 
 				> gem install soloist
 				> soloist
 
-		[Try it now](/build?url=https://github.com/newcontext/pivotal_workstation), or use your own cookbooks repo..
+		[Try it now](/build?url=https://github.com/pivotal/pivotal_workstation), or use your own cookbooks repo..
 
 %section#config
 	%form{action: "/build", method: "get"}
 		%label GitHub Repository URL
-		%input{type: "text", id: "url", name: "url", placeholder: "https://github.com/newcontext/pivotal_workstation"}
+		%input{type: "text", id: "url", name: "url", placeholder: "https://github.com/pivotal/pivotal_workstation"}
 		%button{type: "submit"} Submit
