@@ -1,1 +1,1 @@
-rvm use --create ruby-1.9.3-p194@soloistrc_builder
+rvm use --create ruby-1.9.3-p327@soloistrc_builder
